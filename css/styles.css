@@ -1192,3 +1192,76 @@ MenuMod
 .mob-nav {
     margin-bottom: auto;
 }
+
+.mob-menu-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.mob-nav-a {
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 1.11;
+    letter-spacing: 0.02em;
+    color: #2e2f42;
+}
+
+.text-color {
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 1.11111;
+    letter-spacing: 0.02em;
+    color: #404bbf;
+}
+
+.mob-address {
+    margin-bottom: 48px;
+}
+
+.mob-address-ul {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.mob-address-a {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.2;
+    letter-spacing: 0.02em;
+    color: #434455;
+    font-style: normal;
+}
+
+.address-color {
+    color: #4d5ae5;
+}
+
+.mob-icon-ul {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    max-width: 280px;
+    height: 40px;
+}
+
+.mob-icon-a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: #4d5ae5;
+    border-radius: 50%;
+}
+
+.mob-svg-menu {
+    fill: #f4f4fd;
+}
+
+@media screen and (min-width: 768px) {
+    .menu-mod {
+        display: none;
+    }
+}
