@@ -70,6 +70,7 @@ body {
     ======================================================================================================================================================== */
 .page-header {
     border-bottom: 1px solid #e7e9fc;
+    box-shadow: 0 1px 6px 0 rgba(46, 47, 66, 0.08), 0 1px 1px 0 rgba(46, 47, 66, 0.16), 0 2px 1px 0 rgba(46, 47, 66, 0.08);
 }
 
 .header-container {
@@ -105,7 +106,7 @@ body {
 .btn-burger {
     padding: 0;
     border: none;
-    border-color: transparent;
+    background-color: transparent;
     cursor: pointer;
 }
 
@@ -276,6 +277,7 @@ hero
         font-size: 56px;
         line-height: 1.07;
         max-width: 496px;
+        margin-bottom: 36px;
     }
 }
 
@@ -284,6 +286,10 @@ hero
         padding: 188px 0;
         background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)), url(../images/people-office.jpg);
         max-width: 1440px;
+    }
+
+    .title-one {
+        margin-bottom: 48px;
     }
 }
 
@@ -351,6 +357,10 @@ BENEFITS
     .line {
         flex-basis: calc((100% - 24px));
         max-width: calc(50% - 12px);
+    }
+
+    .title-three {
+        text-align: left;
     }
 }
 
@@ -549,7 +559,9 @@ OurPortfolio
 
 .li-c {
     max-width: 288px;
-    height: 400px;
+    box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
+        0px 1px 1px rgba(46, 47, 66, 0.16),
+        0px 2px 1px rgba(46, 47, 66, 0.08);
     transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -575,7 +587,6 @@ OurPortfolio
 
 .container-addition {
     padding: 32px 16px;
-    border: 1px solid #e7e9fc;
     border-top: none;
 }
 
@@ -619,8 +630,19 @@ OurPortfolio
 
     .li-c {
         max-width: 360px;
-        height: 420px;
+        box-shadow: none;
+        width: calc((100% - 3 * 24px));
         transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .li-c:hover {
+        box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
+            0px 1px 1px rgba(46, 47, 66, 0.16),
+            0px 2px 1px rgba(46, 47, 66, 0.08);
+    }
+
+    .li-c:hover .portfolio-p {
+        transform: translateY(0%);
     }
 
     .portfolio-p {
@@ -638,6 +660,13 @@ OurPortfolio
         transform: translateY(100%);
         transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
     }
+
+    .container-addition {
+        border-bottom: 1px solid #e7e9fc;
+        border-left: 1px solid #e7e9fc;
+        border-right: 1px solid #e7e9fc;
+    }
+
 }
 
 /* ========================================================================================================================================================
@@ -854,6 +883,7 @@ footer
 
     .footer-input {
         box-sizing: border-box;
+        width: 264px;
     }
 }
 
@@ -879,6 +909,12 @@ footer
 /* ========================================================================================================================================================
 ModalOverlay
 ======================================================================================================================================================== */
+.modal-overlay.is-open-a {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
 .modal-overlay {
     background: rgba(46, 47, 66, 0.4);
     position: fixed;
@@ -890,9 +926,9 @@ ModalOverlay
     display: flex;
     justify-content: center;
     align-items: center;
-    visibility: hidden;
-    opacity: 0;
-    pointer-events: none;
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
     transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -902,7 +938,6 @@ ModalOverlay
     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 2px 1px 0 rgba(0, 0, 0, 0.2);
     background: #fcfcfc;
     width: 288px;
-    height: 623px;
     min-height: 623px;
     overflow: auto;
     position: absolute;
@@ -1057,6 +1092,10 @@ UserName
 }
 
 .label-privacy {
+    display: flex;
+    flex-direction: row;
+    column-gap: 7.5px;
+    align-items: center;
     font-size: 12px;
     letter-spacing: 0.04em;
     color: #8e8f99;
@@ -1073,6 +1112,7 @@ UserName
     border: 1px solid rgba(46, 47, 66, 0.4);
     cursor: pointer;
     fill: transparent;
+    flex-shrink: 0;
     margin-right: 8px;
     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1), fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -1125,7 +1165,7 @@ UserName
     .modal {
         padding: 72px 24px 24px 24px;
         width: 408px;
-        height: 584px;
+
         min-height: 584px;
     }
 }
@@ -1133,9 +1173,14 @@ UserName
 /* ========================================================================================================================================================
 MenuMod
 ======================================================================================================================================================== */
-.menu-mod {
+.menu-mod.is-open-b {
+    transform: translate(100%);
     display: flex;
     flex-direction: column;
+}
+
+.menu-mod {
+    display: flex;
     width: 100%;
     height: 100%;
     background-color: #fff;
@@ -1145,7 +1190,8 @@ MenuMod
     left: 0;
 
     overflow-y: auto;
-    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateX(0%);
 }
 
 .container-menu {
@@ -1261,7 +1307,10 @@ MenuMod
 }
 
 @media screen and (min-width: 768px) {
-    .menu-mod {
+    .menu-mod.is-open {
         display: none;
     }
+
+
+
 }
